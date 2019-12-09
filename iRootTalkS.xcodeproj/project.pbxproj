@@ -16,6 +16,10 @@
 		9F5C31A9239E0F2F0067F5EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31A8239E0F2F0067F5EC /* main.m */; };
 		9F5C31B3239E0F2F0067F5EC /* iRootTalkSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31B2239E0F2F0067F5EC /* iRootTalkSTests.m */; };
 		9F5C31BE239E0F2F0067F5EC /* iRootTalkSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31BD239E0F2F0067F5EC /* iRootTalkSUITests.m */; };
+		9F5C31CD239E152B0067F5EC /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31CC239E152B0067F5EC /* WebViewController.m */; };
+		9F5C31D0239E15620067F5EC /* TalkSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31CF239E15620067F5EC /* TalkSViewController.m */; };
+		9F5C31D3239E15C20067F5EC /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31D2239E15C20067F5EC /* UserListViewController.m */; };
+		9F5C31D6239E294C0067F5EC /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31D5239E294C0067F5EC /* TabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,14 @@
 		9F5C31B9239E0F2F0067F5EC /* iRootTalkSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iRootTalkSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5C31BD239E0F2F0067F5EC /* iRootTalkSUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRootTalkSUITests.m; sourceTree = "<group>"; };
 		9F5C31BF239E0F2F0067F5EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F5C31CB239E152B0067F5EC /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		9F5C31CC239E152B0067F5EC /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		9F5C31CE239E15620067F5EC /* TalkSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TalkSViewController.h; sourceTree = "<group>"; };
+		9F5C31CF239E15620067F5EC /* TalkSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TalkSViewController.m; sourceTree = "<group>"; };
+		9F5C31D1239E15C20067F5EC /* UserListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserListViewController.h; sourceTree = "<group>"; };
+		9F5C31D2239E15C20067F5EC /* UserListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserListViewController.m; sourceTree = "<group>"; };
+		9F5C31D4239E294C0067F5EC /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		9F5C31D5239E294C0067F5EC /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +127,14 @@
 				9F5C31A4239E0F2F0067F5EC /* LaunchScreen.storyboard */,
 				9F5C31A7239E0F2F0067F5EC /* Info.plist */,
 				9F5C31A8239E0F2F0067F5EC /* main.m */,
+				9F5C31D1239E15C20067F5EC /* UserListViewController.h */,
+				9F5C31D2239E15C20067F5EC /* UserListViewController.m */,
+				9F5C31D4239E294C0067F5EC /* TabBarController.h */,
+				9F5C31D5239E294C0067F5EC /* TabBarController.m */,
+				9F5C31CE239E15620067F5EC /* TalkSViewController.h */,
+				9F5C31CF239E15620067F5EC /* TalkSViewController.m */,
+				9F5C31CB239E152B0067F5EC /* WebViewController.h */,
+				9F5C31CC239E152B0067F5EC /* WebViewController.m */,
 			);
 			path = iRootTalkS;
 			sourceTree = "<group>";
@@ -268,9 +288,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F5C319E239E0F220067F5EC /* ViewController.m in Sources */,
+				9F5C31CD239E152B0067F5EC /* WebViewController.m in Sources */,
+				9F5C31D0239E15620067F5EC /* TalkSViewController.m in Sources */,
 				9F5C3198239E0F220067F5EC /* AppDelegate.m in Sources */,
 				9F5C31A9239E0F2F0067F5EC /* main.m in Sources */,
+				9F5C31D6239E294C0067F5EC /* TabBarController.m in Sources */,
 				9F5C319B239E0F220067F5EC /* SceneDelegate.m in Sources */,
+				9F5C31D3239E15C20067F5EC /* UserListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
