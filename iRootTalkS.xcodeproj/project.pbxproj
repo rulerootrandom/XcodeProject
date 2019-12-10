@@ -20,6 +20,16 @@
 		9F5C31D0239E15620067F5EC /* TalkSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31CF239E15620067F5EC /* TalkSViewController.m */; };
 		9F5C31D3239E15C20067F5EC /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31D2239E15C20067F5EC /* UserListViewController.m */; };
 		9F5C31D6239E294C0067F5EC /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31D5239E294C0067F5EC /* TabBarController.m */; };
+		9F724B75239F6AF400845828 /* ChatCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F724B74239F6AF400845828 /* ChatCellData.m */; };
+		9F724B78239F6D4B00845828 /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F724B77239F6D4B00845828 /* LeftTableViewCell.m */; };
+		9F724B80239F731D00845828 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F724B79239F731C00845828 /* second@2x.png */; };
+		9F724B81239F731D00845828 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F724B7A239F731C00845828 /* first.png */; };
+		9F724B82239F731D00845828 /* ChatFaceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F724B7B239F731D00845828 /* ChatFaceIcon.png */; };
+		9F724B83239F731D00845828 /* box.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F724B7C239F731D00845828 /* box.png */; };
+		9F724B84239F731D00845828 /* tar_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F724B7D239F731D00845828 /* tar_box.png */; };
+		9F724B85239F731D00845828 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F724B7E239F731D00845828 /* first@2x.png */; };
+		9F724B86239F731D00845828 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F724B7F239F731D00845828 /* second.png */; };
+		9F724B89239F86AC00845828 /* RightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F724B88239F86AC00845828 /* RightTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +76,19 @@
 		9F5C31D2239E15C20067F5EC /* UserListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserListViewController.m; sourceTree = "<group>"; };
 		9F5C31D4239E294C0067F5EC /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		9F5C31D5239E294C0067F5EC /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		9F724B73239F6AF400845828 /* ChatCellData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatCellData.h; sourceTree = "<group>"; };
+		9F724B74239F6AF400845828 /* ChatCellData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatCellData.m; sourceTree = "<group>"; };
+		9F724B76239F6D4B00845828 /* LeftTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftTableViewCell.h; sourceTree = "<group>"; };
+		9F724B77239F6D4B00845828 /* LeftTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewCell.m; sourceTree = "<group>"; };
+		9F724B79239F731C00845828 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		9F724B7A239F731C00845828 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		9F724B7B239F731D00845828 /* ChatFaceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChatFaceIcon.png; sourceTree = "<group>"; };
+		9F724B7C239F731D00845828 /* box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box.png; sourceTree = "<group>"; };
+		9F724B7D239F731D00845828 /* tar_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tar_box.png; sourceTree = "<group>"; };
+		9F724B7E239F731D00845828 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		9F724B7F239F731D00845828 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		9F724B87239F86AC00845828 /* RightTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RightTableViewCell.h; sourceTree = "<group>"; };
+		9F724B88239F86AC00845828 /* RightTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RightTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +139,13 @@
 		9F5C3195239E0F220067F5EC /* iRootTalkS */ = {
 			isa = PBXGroup;
 			children = (
+				9F724B7C239F731D00845828 /* box.png */,
+				9F724B7B239F731D00845828 /* ChatFaceIcon.png */,
+				9F724B7A239F731C00845828 /* first.png */,
+				9F724B7E239F731D00845828 /* first@2x.png */,
+				9F724B7F239F731D00845828 /* second.png */,
+				9F724B79239F731C00845828 /* second@2x.png */,
+				9F724B7D239F731D00845828 /* tar_box.png */,
 				9F5C3196239E0F220067F5EC /* AppDelegate.h */,
 				9F5C3197239E0F220067F5EC /* AppDelegate.m */,
 				9F5C3199239E0F220067F5EC /* SceneDelegate.h */,
@@ -123,6 +153,10 @@
 				9F5C319C239E0F220067F5EC /* ViewController.h */,
 				9F5C319D239E0F220067F5EC /* ViewController.m */,
 				9F5C319F239E0F220067F5EC /* Main.storyboard */,
+				9F724B76239F6D4B00845828 /* LeftTableViewCell.h */,
+				9F724B77239F6D4B00845828 /* LeftTableViewCell.m */,
+				9F724B87239F86AC00845828 /* RightTableViewCell.h */,
+				9F724B88239F86AC00845828 /* RightTableViewCell.m */,
 				9F5C31A2239E0F2F0067F5EC /* Assets.xcassets */,
 				9F5C31A4239E0F2F0067F5EC /* LaunchScreen.storyboard */,
 				9F5C31A7239E0F2F0067F5EC /* Info.plist */,
@@ -131,6 +165,8 @@
 				9F5C31D2239E15C20067F5EC /* UserListViewController.m */,
 				9F5C31D4239E294C0067F5EC /* TabBarController.h */,
 				9F5C31D5239E294C0067F5EC /* TabBarController.m */,
+				9F724B73239F6AF400845828 /* ChatCellData.h */,
+				9F724B74239F6AF400845828 /* ChatCellData.m */,
 				9F5C31CE239E15620067F5EC /* TalkSViewController.h */,
 				9F5C31CF239E15620067F5EC /* TalkSViewController.m */,
 				9F5C31CB239E152B0067F5EC /* WebViewController.h */,
@@ -261,8 +297,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F5C31A6239E0F2F0067F5EC /* LaunchScreen.storyboard in Resources */,
+				9F724B82239F731D00845828 /* ChatFaceIcon.png in Resources */,
 				9F5C31A3239E0F2F0067F5EC /* Assets.xcassets in Resources */,
+				9F724B80239F731D00845828 /* second@2x.png in Resources */,
 				9F5C31A1239E0F220067F5EC /* Main.storyboard in Resources */,
+				9F724B84239F731D00845828 /* tar_box.png in Resources */,
+				9F724B85239F731D00845828 /* first@2x.png in Resources */,
+				9F724B83239F731D00845828 /* box.png in Resources */,
+				9F724B81239F731D00845828 /* first.png in Resources */,
+				9F724B86239F731D00845828 /* second.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,11 +332,14 @@
 			files = (
 				9F5C319E239E0F220067F5EC /* ViewController.m in Sources */,
 				9F5C31CD239E152B0067F5EC /* WebViewController.m in Sources */,
+				9F724B78239F6D4B00845828 /* LeftTableViewCell.m in Sources */,
 				9F5C31D0239E15620067F5EC /* TalkSViewController.m in Sources */,
 				9F5C3198239E0F220067F5EC /* AppDelegate.m in Sources */,
 				9F5C31A9239E0F2F0067F5EC /* main.m in Sources */,
 				9F5C31D6239E294C0067F5EC /* TabBarController.m in Sources */,
 				9F5C319B239E0F220067F5EC /* SceneDelegate.m in Sources */,
+				9F724B89239F86AC00845828 /* RightTableViewCell.m in Sources */,
+				9F724B75239F6AF400845828 /* ChatCellData.m in Sources */,
 				9F5C31D3239E15C20067F5EC /* UserListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

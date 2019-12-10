@@ -8,9 +8,15 @@
 
 #import "ViewController.h"
 
+#import "ChatCellData.h"
+#import "LeftTableViewCell.h"
+#import "RightTableViewCell.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TalkSViewController : ViewController
+@interface TalkSViewController : ViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UITableView *pChatListView;
 
 @end
 
