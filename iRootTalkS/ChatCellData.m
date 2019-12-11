@@ -27,6 +27,4 @@
     return result;
 }
 
-
-
 @end

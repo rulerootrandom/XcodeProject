@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) UIImage *pUser;
 @property (strong, nonatomic) NSString *pTime;
 @property (strong, nonatomic) NSString *pChat;
-@property int iCellNumber;
+@property (nonatomic) int iCellNumber;
 
 +(ChatCellData *) initWithName:(UIImage *)userImg time:(NSString *)timeValue chat:(NSString *)chatValue cell:(int)cellNumber;
 

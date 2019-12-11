@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+#import "ChatSQLiteDB.h"
 #import "ChatCellData.h"
 #import "LeftTableViewCell.h"
 #import "RightTableViewCell.h"

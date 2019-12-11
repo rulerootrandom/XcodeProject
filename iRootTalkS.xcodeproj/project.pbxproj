@@ -30,6 +30,7 @@
 		9F724B85239F731D00845828 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F724B7E239F731D00845828 /* first@2x.png */; };
 		9F724B86239F731D00845828 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F724B7F239F731D00845828 /* second.png */; };
 		9F724B89239F86AC00845828 /* RightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F724B88239F86AC00845828 /* RightTableViewCell.m */; };
+		9FA3C465239FCE9D00F8F854 /* ChatSQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA3C464239FCE9D00F8F854 /* ChatSQLiteDB.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,8 @@
 		9F724B7F239F731D00845828 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		9F724B87239F86AC00845828 /* RightTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RightTableViewCell.h; sourceTree = "<group>"; };
 		9F724B88239F86AC00845828 /* RightTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RightTableViewCell.m; sourceTree = "<group>"; };
+		9FA3C463239FCE9D00F8F854 /* ChatSQLiteDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatSQLiteDB.h; sourceTree = "<group>"; };
+		9FA3C464239FCE9D00F8F854 /* ChatSQLiteDB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatSQLiteDB.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,8 @@
 				9F5C31D2239E15C20067F5EC /* UserListViewController.m */,
 				9F5C31D4239E294C0067F5EC /* TabBarController.h */,
 				9F5C31D5239E294C0067F5EC /* TabBarController.m */,
+				9FA3C463239FCE9D00F8F854 /* ChatSQLiteDB.h */,
+				9FA3C464239FCE9D00F8F854 /* ChatSQLiteDB.m */,
 				9F724B73239F6AF400845828 /* ChatCellData.h */,
 				9F724B74239F6AF400845828 /* ChatCellData.m */,
 				9F5C31CE239E15620067F5EC /* TalkSViewController.h */,
@@ -335,6 +340,7 @@
 				9F724B78239F6D4B00845828 /* LeftTableViewCell.m in Sources */,
 				9F5C31D0239E15620067F5EC /* TalkSViewController.m in Sources */,
 				9F5C3198239E0F220067F5EC /* AppDelegate.m in Sources */,
+				9FA3C465239FCE9D00F8F854 /* ChatSQLiteDB.m in Sources */,
 				9F5C31A9239E0F2F0067F5EC /* main.m in Sources */,
 				9F5C31D6239E294C0067F5EC /* TabBarController.m in Sources */,
 				9F5C319B239E0F220067F5EC /* SceneDelegate.m in Sources */,

@@ -14,7 +14,7 @@
 
 @implementation TalkSViewController
 {
-    NSMutableArray *pChatDataArray;
+ //   NSMutableArray *pChatDataArray;
 }
 
 @synthesize pChatListView;
@@ -25,15 +25,24 @@
     
     pChatListView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    pChatDataArray = [[NSMutableArray alloc] init];
+   // pChatDataArray = [[NSMutableArray alloc] init];
     
-    UIImage *img = [[UIImage imageNamed:@"box.png"] stretchableImageWithLeftCapWidth:20 topCapHeight:16];
+  //  UIImage *img = [[UIImage imageNamed:@"chatFaceIcon.png"] stretchableImageWithLeftCapWidth:20 topCapHeight:16];
 
+    [ChatSQLiteDB.sharedInstance createDBTable];
+    
+    [ChatSQLiteDB.sharedInstance insertDB:@"2020.11.11" chat:@"Hello, SQLite!!" cell:1];
+    
+    [ChatSQLiteDB.sharedInstance insertDB:@"2020.11.12" chat:@"Hello, SQLite!!" cell:1];
+    
+    [ChatSQLiteDB.sharedInstance insertDB:@"2020.11.13" chat:@"Hello, SQLite!!" cell:1];
+    /*
     [pChatDataArray addObject:[ChatCellData initWithName:img time:@"2020.11.11" chat:@"Hello World!!" cell:0]];
 
     [pChatDataArray addObject:[ChatCellData initWithName:img time:@"2020.11.12" chat:@"Hello World!!" cell:1]];
 
     [pChatDataArray addObject:[ChatCellData initWithName:img time:@"2020.11.13" chat:@"Hello World!!" cell:0]];
+    */
 }
 
 /*
@@ -57,7 +66,8 @@
     
     if(section == 0)
     {
-        result = [self->pChatDataArray count];
+      //  result = [self->pChatDataArray count];
+        result = [ChatSQLiteDB.sharedInstance.pDataArray count];
     }
     else
     {
@@ -78,8 +88,10 @@
     // 반드시 식별자를 셀에 부여해야 에러가 않난다..
     static NSString *kReuseIdentifier;
     
-    int cellNum = [[self->pChatDataArray objectAtIndex:indexPath.row] iCellNumber];
-        
+ //   int cellNum = [[self->pChatDataArray objectAtIndex:indexPath.row] iCellNumber];
+   
+    int cellNum = [[ChatSQLiteDB.sharedInstance.pDataArray objectAtIndex:indexPath.row] iCellNumber];
+    
     switch(cellNum)
     {
         case 0:
@@ -91,9 +103,19 @@
             {
                 pLeftCell = (LeftTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kReuseIdentifier];
                 
+                /*
                 pLeftCell.pUserImg.image = [[self->pChatDataArray objectAtIndex:indexPath.row] pUser];
                 pLeftCell.pTime.text = [[self->pChatDataArray objectAtIndex:indexPath.row] pTime];
                 pLeftCell.pChat.text = [[self->pChatDataArray objectAtIndex:indexPath.row] pChat];
+                */
+                
+                pLeftCell.pUserImg.image = [[ChatSQLiteDB.sharedInstance.pDataArray objectAtIndex:indexPath.row] pUser];
+                
+                pLeftCell.pTime.text = [[ChatSQLiteDB.sharedInstance.pDataArray objectAtIndex:indexPath.row] pTime];
+                
+                pLeftCell.pChat.text = [[ChatSQLiteDB.sharedInstance.pDataArray objectAtIndex:indexPath.row] pChat];
+                
+                pLeftCell.pChat.editable = NO;
             }
             
             return pLeftCell;
@@ -120,6 +142,7 @@
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
+    /*
     if(editingStyle == UITableViewCellEditingStyleDelete)
     {
         [self->pChatDataArray removeObjectAtIndex:indexPath.row];
@@ -127,13 +150,18 @@
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
     }
+    */
 }
 
 - (IBAction)AddItem:(id)sender
 {
-    UIImage *img = [[UIImage imageNamed:@"ChatFaceIcon.png"] stretchableImageWithLeftCapWidth:20 topCapHeight:16];
+  //  UIImage *img = [[UIImage imageNamed:@"ChatFaceIcon.png"] stretchableImageWithLeftCapWidth:20 topCapHeight:16];
     
-    [self->pChatDataArray addObject:[ChatCellData initWithName:img time:@"2020.11.14" chat:@"Add Hello World!!" cell:0]];
+   // [self->pChatDataArray addObject:[ChatCellData initWithName:img time:@"2020.11.14" chat:@"Add Hello World!!" cell:0]];
+    
+    [ChatSQLiteDB.sharedInstance insertDB:@"2020.11.22" chat:@"Add Hello, SQLite!!" cell:0];
+    
+    [ChatSQLiteDB.sharedInstance selectDB];
     
     [pChatListView reloadData];
 }
