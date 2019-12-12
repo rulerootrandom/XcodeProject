@@ -37,6 +37,7 @@
         
         if(sqlite3_open(dbPath, &conn)==SQLITE_OK)
         {
+          //  const char *sqlQuery = "drop table chatdata";
             const char *sqlQuery = "create table if not exists chatdata (id integer primary key autoincrement, chattime text, chattext text, cellnum integer )";
             
             if(sqlite3_exec(conn, sqlQuery, NULL, NULL, &er)!=SQLITE_OK)
@@ -52,7 +53,7 @@
         NSLog(@"Exe");
     }
     
-    [self selectDB];
+  //  [self selectDB];
 }
 
 -(void)insertDB:(NSString *)chattime chat:(NSString *)chattext cell:(int)cellnumber
@@ -62,7 +63,7 @@
     
     if(sqlite3_open(dbPath, &conn)==SQLITE_OK)
     {
-        NSString *insert = [NSString stringWithFormat:@"insert into chatdata (chattime, chattext, cellnum) values (\"%@\",\"%@\",\"%d\")", chattime, chattext, cellnumber];
+        NSString *insert = [NSString stringWithFormat:@"insert into chatdata (chattime, chattext, cellnum) values (\"%@\",\"%@\", %d )", chattime, chattext, cellnumber];
         
         const char *insert_sql = [insert UTF8String];
         
@@ -96,7 +97,7 @@
     
     if(sqlite3_open(dbfile, &db)==SQLITE_OK)
     {
-        const char *sql = [[NSString stringWithFormat:@"select id, chattime, chattext from chatdata"] UTF8String ];
+        const char *sql = [[NSString stringWithFormat:@"select id, chattime, chattext, cellnum from chatdata"] UTF8String ];
         
         sqlite3_stmt *stmt;
         
@@ -104,15 +105,20 @@
         {
             while(sqlite3_step(stmt)==SQLITE_ROW)
             {
+                /*
                 NSNumber *id = @(sqlite3_column_int(stmt,0));
+                
+                NSLog(@"ID: %@", id);
+                */
+                int ide = sqlite3_column_int(stmt,0);
+                
+                NSLog(@"ID: %d", ide );
                 
                 NSString *chattime = [NSString stringWithUTF8String:sqlite3_column_text(stmt,1)];
                 
                 NSString *chattext = [NSString stringWithUTF8String:sqlite3_column_text(stmt,2)];
                 
-                int cellnumber = (int)(sqlite3_column_int(stmt,3));
-                
-                // 오늘은 요기까지 cellnumber 가 전부 0 으로 나오는 버그이다..
+                int cellnumber = sqlite3_column_int(stmt,3);
                 
                 NSLog(@"Select DB cellnumber %d", cellnumber);
                 

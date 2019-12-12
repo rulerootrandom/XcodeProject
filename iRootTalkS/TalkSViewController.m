@@ -14,7 +14,7 @@
 
 @implementation TalkSViewController
 {
- //   NSMutableArray *pChatDataArray;
+
 }
 
 @synthesize pChatListView;
@@ -22,27 +22,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     pChatListView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-   // pChatDataArray = [[NSMutableArray alloc] init];
-    
+        
   //  UIImage *img = [[UIImage imageNamed:@"chatFaceIcon.png"] stretchableImageWithLeftCapWidth:20 topCapHeight:16];
 
     [ChatSQLiteDB.sharedInstance createDBTable];
     
+    /*
     [ChatSQLiteDB.sharedInstance insertDB:@"2020.11.11" chat:@"Hello, SQLite!!" cell:1];
     
     [ChatSQLiteDB.sharedInstance insertDB:@"2020.11.12" chat:@"Hello, SQLite!!" cell:1];
     
-    [ChatSQLiteDB.sharedInstance insertDB:@"2020.11.13" chat:@"Hello, SQLite!!" cell:1];
-    /*
-    [pChatDataArray addObject:[ChatCellData initWithName:img time:@"2020.11.11" chat:@"Hello World!!" cell:0]];
-
-    [pChatDataArray addObject:[ChatCellData initWithName:img time:@"2020.11.12" chat:@"Hello World!!" cell:1]];
-
-    [pChatDataArray addObject:[ChatCellData initWithName:img time:@"2020.11.13" chat:@"Hello World!!" cell:0]];
+    [ChatSQLiteDB.sharedInstance insertDB:@"2020.11.13" chat:@"Hello, SQLite!!" cell:0];
     */
+ 
+    [ChatSQLiteDB.sharedInstance selectDB];
 }
 
 /*
@@ -66,7 +60,6 @@
     
     if(section == 0)
     {
-      //  result = [self->pChatDataArray count];
         result = [ChatSQLiteDB.sharedInstance.pDataArray count];
     }
     else
@@ -88,8 +81,6 @@
     // 반드시 식별자를 셀에 부여해야 에러가 않난다..
     static NSString *kReuseIdentifier;
     
- //   int cellNum = [[self->pChatDataArray objectAtIndex:indexPath.row] iCellNumber];
-   
     int cellNum = [[ChatSQLiteDB.sharedInstance.pDataArray objectAtIndex:indexPath.row] iCellNumber];
     
     switch(cellNum)
@@ -102,12 +93,6 @@
             if(indexPath.section == 0)
             {
                 pLeftCell = (LeftTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kReuseIdentifier];
-                
-                /*
-                pLeftCell.pUserImg.image = [[self->pChatDataArray objectAtIndex:indexPath.row] pUser];
-                pLeftCell.pTime.text = [[self->pChatDataArray objectAtIndex:indexPath.row] pTime];
-                pLeftCell.pChat.text = [[self->pChatDataArray objectAtIndex:indexPath.row] pChat];
-                */
                 
                 pLeftCell.pUserImg.image = [[ChatSQLiteDB.sharedInstance.pDataArray objectAtIndex:indexPath.row] pUser];
                 
