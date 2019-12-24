@@ -11,9 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LeftTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *pUserImg;
+
+@property (strong, nonatomic) IBOutlet UIImageView *pBack;
+@property (strong, nonatomic) IBOutlet UILabel *pChat;
 @property (strong, nonatomic) IBOutlet UILabel *pTime;
-@property (strong, nonatomic) IBOutlet UITextView *pChat;
 
 @end
 

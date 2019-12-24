@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)selectDB;
 -(void)deleteDB;
 
+-(void)dropDBTable;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -31,8 +31,8 @@
     
     char *er;
     
-    if([fm fileExistsAtPath:dataPath]==NO)
-    {
+  //  if([fm fileExistsAtPath:dataPath]==NO)
+  //  {
         const char *dbPath = [dataPath UTF8String];
         
         if(sqlite3_open(dbPath, &conn)==SQLITE_OK)
@@ -47,11 +47,11 @@
             
             sqlite3_close(conn);
         }
-    }
-    else
-    {
-        NSLog(@"Exe");
-    }
+ //   }
+ //   else
+  //  {
+  //      NSLog(@"Exe");
+  //  }
     
   //  [self selectDB];
 }
@@ -147,6 +147,47 @@
     });
     
     return shared;
+}
+
+-(void)dropDBTable
+{
+    NSString *docdir;
+    NSArray *path;
+    
+    pDataArray = [[NSMutableArray alloc] init ];
+    
+    path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    docdir = path[0];
+    
+    dataPath = [[NSString alloc] initWithString:[docdir stringByAppendingPathComponent:@"chatdata.db"]];
+    
+    NSFileManager *fm = [NSFileManager defaultManager];
+    
+    char *er;
+    
+   // if([fm fileExistsAtPath:dataPath]==NO)
+   // {
+        const char *dbPath = [dataPath UTF8String];
+        
+        if(sqlite3_open(dbPath, &conn)==SQLITE_OK)
+        {
+            const char *sqlQuery = "drop table chatdata";
+            
+            if(sqlite3_exec(conn, sqlQuery, NULL, NULL, &er)!=SQLITE_OK)
+            {
+                NSLog(@"Execution failed");
+            }
+            
+            sqlite3_close(conn);
+        }
+  //  }
+  //  else
+//    {
+    //    NSLog(@"Exe");
+  //  }
+    
+    
 }
 
 

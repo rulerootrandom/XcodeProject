@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RightTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UIImageView *pBack;
+
+@property (strong, nonatomic) IBOutlet UILabel *pChat;
+@property (strong, nonatomic) IBOutlet UILabel *pTime;
+
 @end
 
 NS_ASSUME_NONNULL_END

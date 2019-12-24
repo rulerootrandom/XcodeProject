@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mTL-o0-gQ0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mTL-o0-gQ0">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -81,46 +81,72 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z9c-34-ZVL">
-                                                    <rect key="frame" x="15" y="11" width="64" height="57"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="leftmal.png" translatesAutoresizingMaskIntoConstraints="NO" id="SkC-8p-kf0">
+                                                    <rect key="frame" x="15" y="28" width="208" height="37"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80D-sz-Vwr">
-                                                    <rect key="frame" x="87" y="11" width="134" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80D-sz-Vwr" userLabel="PChat">
+                                                    <rect key="frame" x="15" y="28" width="208" height="37"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="My name is RootJM" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u4W-GH-CJJ">
-                                                    <rect key="frame" x="87" y="34" width="240" height="34"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2019.12.19.10:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdk-i6-R1O" userLabel="PTime">
+                                                    <rect key="frame" x="15" y="11" width="103" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="pChat" destination="u4W-GH-CJJ" id="vQ4-XW-xGc"/>
-                                            <outlet property="pTime" destination="80D-sz-Vwr" id="cfj-mK-znt"/>
-                                            <outlet property="pUserImg" destination="Z9c-34-ZVL" id="mrd-ha-wzx"/>
+                                            <outlet property="pBack" destination="SkC-8p-kf0" id="VkW-0M-Yoz"/>
+                                            <outlet property="pChat" destination="80D-sz-Vwr" id="i1S-df-A4g"/>
+                                            <outlet property="pTime" destination="Qdk-i6-R1O" id="BDx-Ga-kYj"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RightTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Right ChatList Item" id="7zP-x7-axv" customClass="RightTableViewCell">
-                                        <rect key="frame" x="0.0" y="104" width="343" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RightTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Right ChatList Item" rowHeight="63" id="7zP-x7-axv" customClass="RightTableViewCell">
+                                        <rect key="frame" x="0.0" y="104" width="343" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7zP-x7-axv" id="9mW-7G-8JC">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="63"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rightmal.png" translatesAutoresizingMaskIntoConstraints="NO" id="T48-gC-4gK">
+                                                    <rect key="frame" x="128" y="25" width="200" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWi-H6-CG5" userLabel="PChat">
+                                                    <rect key="frame" x="128" y="25" width="200" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTB-uh-aFq" userLabel="PTime">
+                                                    <rect key="frame" x="219" y="11" width="109" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="pBack" destination="T48-gC-4gK" id="kAl-01-JrF"/>
+                                            <outlet property="pChat" destination="ZWi-H6-CG5" id="1ms-pa-tfk"/>
+                                            <outlet property="pTime" destination="tTB-uh-aFq" id="qdP-R6-pIO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="HF0-fQ-2qf" id="z4u-yg-sCP"/>
-                                    <outlet property="delegate" destination="HF0-fQ-2qf" id="c44-5r-U1C"/>
+                                    <outlet property="dataSource" destination="HF0-fQ-2qf" id="7mV-pI-xuZ"/>
+                                    <outlet property="delegate" destination="HF0-fQ-2qf" id="QlJ-3j-f61"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQY-Sl-DVD">
@@ -131,12 +157,20 @@
                                     <action selector="AddItem:" destination="HF0-fQ-2qf" eventType="touchUpInside" id="w2R-ni-wUn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCx-Rs-qew">
+                                <rect key="frame" x="26" y="547" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Drop Table"/>
+                                <connections>
+                                    <action selector="DropTable:" destination="HF0-fQ-2qf" eventType="touchUpInside" id="NV7-Qs-CA6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="oUs-Hd-5ee"/>
                     </view>
                     <connections>
-                        <outlet property="pChatListView" destination="mi1-OC-FL9" id="4Q6-OX-cDu"/>
+                        <outlet property="pChatListView" destination="mi1-OC-FL9" id="yBu-1P-ieb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3S7-4n-mmE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -198,4 +232,8 @@
             <point key="canvasLocation" x="66" y="-601"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="leftmal.png" width="75" height="37.5"/>
+        <image name="rightmal.png" width="75" height="37.5"/>
+    </resources>
 </document>
