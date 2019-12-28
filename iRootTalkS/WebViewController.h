@@ -10,6 +10,8 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 //#import <UIKit/UIKit.h>
 
+#import "ChatNetworkManager.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol JavaScriptExportDelegate <JSExport>

@@ -32,13 +32,13 @@
 
     [ChatSQLiteDB.sharedInstance createDBTable];
     
-   // /*
+    /*
     [ChatSQLiteDB.sharedInstance insertDB:@"2020.11.11" chat:@"Hello, Every SQLite!!" cell:0];
     
     [ChatSQLiteDB.sharedInstance insertDB:@"2020.11.12" chat:@"Hello, Good Night SQLite!!" cell:0];
     
     [ChatSQLiteDB.sharedInstance insertDB:@"2020.11.13" chat:@"질문 내용은 이렇습니다! 1. 언제 처음 VR을 접하게 되셨나요?유니티를 공부하다가 유니티에서도 VR 프로그램을 할 수있다는 것을 알게 되었습니다.. 그래서 휴대폰에서 VR 을 체험 할 수 있는 Gear VR Occulus 을 구입해서 그 기기로 가상 현실울 처음 접하게 되었습니다..2. VR을 접해 보셨다면 AR도 접해 보셨을텐데, VR을 선택한 이유가 있으신가요? AR 도 역시 유니티에서 SDK 를 설치하고 AR 예제를 돌려 볼 수 있는데 제가 공부를 해보니 내가 예상했을 AR 이 쉬울 줄 알았는데 VR 개발이 더 쉽더라구요.. VR 우선 3D 로 게임이든 앱이든 만들어 놓기만 하면 거기에 들어가는 카메라만 여러가지 VR SDK 에서 제공하는 카메라로 바꾸기만 하면 바로 가상 현실 체험을 해볼 수 있습니다.. 차라리 AR 을 구현하는 것이 더 손이 많이 가고 더 기술력이 많이 필요한 것 같습니다.. 그래서 VR 개발 쪽으로 선택을 했습니다.." cell:0];
-    //*/
+    */
  
     [ChatSQLiteDB.sharedInstance selectDB];
     
@@ -57,6 +57,8 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    [tableView setContentOffset:CGPointMake(0.0, tableView.contentSize.height-tableView.rowHeight)];
+    
     return 1;
 }
 

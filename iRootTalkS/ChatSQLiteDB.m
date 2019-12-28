@@ -8,11 +8,14 @@
 
 #import "ChatSQLiteDB.h"
 
+//#import "CppNetworkModule.hpp"
+
 @implementation ChatSQLiteDB
 
 @synthesize dataPath;
 @synthesize conn;
 @synthesize pDataArray;
+
 
 -(void)createDBTable
 {
@@ -31,8 +34,8 @@
     
     char *er;
     
-  //  if([fm fileExistsAtPath:dataPath]==NO)
-  //  {
+    if([fm fileExistsAtPath:dataPath]==NO)
+    {
         const char *dbPath = [dataPath UTF8String];
         
         if(sqlite3_open(dbPath, &conn)==SQLITE_OK)
@@ -47,11 +50,11 @@
             
             sqlite3_close(conn);
         }
- //   }
- //   else
-  //  {
-  //      NSLog(@"Exe");
-  //  }
+    }
+    else
+    {
+        NSLog(@"Exe");
+    }
     
   //  [self selectDB];
 }
@@ -112,7 +115,7 @@
                 */
                 int ide = sqlite3_column_int(stmt,0);
                 
-                NSLog(@"ID: %d", ide );
+            //    NSLog(@"ID: %d", ide );
                 
                 NSString *chattime = [NSString stringWithUTF8String:sqlite3_column_text(stmt,1)];
                 
@@ -120,7 +123,7 @@
                 
                 int cellnumber = sqlite3_column_int(stmt,3);
                 
-                NSLog(@"Select DB cellnumber %d", cellnumber);
+             //   NSLog(@"Select DB cellnumber %d", cellnumber);
                 
                 [pDataArray addObject:[ChatCellData initWithName:nil time:chattime chat:chattext cell:cellnumber]];
             }
@@ -186,9 +189,9 @@
 //    {
     //    NSLog(@"Exe");
   //  }
-    
-    
 }
+
+
 
 
 @end

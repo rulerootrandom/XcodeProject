@@ -8,6 +8,10 @@
 
 #import "WebViewController.h"
 
+#import "ViewController.h"
+
+//#import "CppNetworkModule.hpp"
+
 @interface WebViewController ()
 
 @end
@@ -52,8 +56,10 @@
 -(void)setUserID:(NSString *)pID
 {
     self.pUserID = pID;
-    
+        
     NSLog(@"User ID: %@", self.pUserID );
+    
+    [ChatNetworkManager.sharedInstance loginConnectProcess:self.pUserID];
 }
 
 /*

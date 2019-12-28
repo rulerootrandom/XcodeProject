@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
 #import "ChatCellData.h"
+//#import "CppNetworkModule.hpp"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,14 +19,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) sqlite3 *conn;
 @property (strong, nonatomic) NSMutableArray *pDataArray;
 
+
 +(instancetype)sharedInstance;
 
 -(void)createDBTable;
 -(void)insertDB:(NSString *)chattime chat:(NSString *)chattext cell:(int)cellnumber;
 -(void)selectDB;
 -(void)deleteDB;
-
 -(void)dropDBTable;
+
+
 
 @end
 
