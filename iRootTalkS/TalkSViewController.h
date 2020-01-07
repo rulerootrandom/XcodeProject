@@ -18,13 +18,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TalkSViewController : ViewController < UITextViewDelegate, webviewDelegate, UITableViewDataSource, UITableViewDelegate>
-@property (strong, nonatomic) IBOutlet UITableView *pChatTableView;
 
+@property (strong, nonatomic) IBOutlet UITableView *pChatTableView;
 @property (strong, nonatomic) IBOutlet UIView *pInputBackView;
 @property (weak, nonatomic) IBOutlet UITextView *pTextView;
 @property (strong, nonatomic) IBOutlet UIButton *pSendButton;
-
-
 @property (strong, nonatomic) IBOutlet UIView *pMainView;
 
 -(CGSize)getBoxSize:(NSString *)pString;

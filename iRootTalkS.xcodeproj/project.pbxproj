@@ -24,6 +24,7 @@
 		9F724B82239F731D00845828 /* ChatFaceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F724B7B239F731D00845828 /* ChatFaceIcon.png */; };
 		9F724B89239F86AC00845828 /* RightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F724B88239F86AC00845828 /* RightTableViewCell.m */; };
 		9F7E5F9123B49011006A044B /* CppNetworkModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E5F8F23B49011006A044B /* CppNetworkModule.cpp */; };
+		9F8FB7DC23C4703800A71778 /* TalkSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31CF239E15620067F5EC /* TalkSViewController.mm */; };
 		9FA3C465239FCE9D00F8F854 /* ChatSQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA3C464239FCE9D00F8F854 /* ChatSQLiteDB.m */; };
 		9FADB2B123AB549100DE9A1E /* rightmal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FADB2AE23AB549000DE9A1E /* rightmal.png */; };
 		9FADB2B223AB549100DE9A1E /* textbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FADB2AF23AB549000DE9A1E /* textbg.png */; };
@@ -327,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F8FB7DC23C4703800A71778 /* TalkSViewController.mm in Sources */,
 				9F5C319E239E0F220067F5EC /* ViewController.m in Sources */,
 				9F5C31CD239E152B0067F5EC /* WebViewController.m in Sources */,
 				9F724B78239F6D4B00845828 /* LeftTableViewCell.m in Sources */,

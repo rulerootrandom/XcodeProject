@@ -20,7 +20,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="96"/>
+            <point key="canvasLocation" x="979" y="77"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="Z9s-nd-owf">
@@ -50,7 +50,7 @@
         <!--TalkS View Controller-->
         <scene sceneID="ZSo-Hh-yqQ">
             <objects>
-                <viewController storyboardIdentifier="TalkSViewController" id="HF0-fQ-2qf" customClass="TalkSViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TalkSViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HF0-fQ-2qf" customClass="TalkSViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SpB-qQ-JAO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -227,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMQ-R6-S8y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66" y="-601"/>
+            <point key="canvasLocation" x="129" y="77"/>
         </scene>
     </scenes>
     <resources>
