@@ -29,12 +29,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)loginToServer:(NSString *)pUserID;
 
-/*
+///*
 -(BOOL)heavyOperation;
 //-(void)updateUI:(NSDictionary *)param;
 -(void)updateUI:(NSString *)pUserID;
 -(void)alertFail;
- */
+// */
 
 @end
 

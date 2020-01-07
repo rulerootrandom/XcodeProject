@@ -108,44 +108,66 @@
     // */
     // !!
 
-    /*
-    // !! 주기적으로 화면 갱신을 하기 위해서
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        BOOL res = [self heavyOperation];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            if(res)
-            {
-                [self updateUI:nil];
-            }
-            else
-            {
-                [self alertFail];
-            }
-        });
-    });
-    */
-    // !!
+  
 }
 
-/*
+
 -(BOOL)heavyOperation
 {
+   // while(1)
+   // {
+        NSLog(@"Heavy Operation!!!");
+   // }
+    
     return YES;
 }
 
--(void)updateUI:(NSDictionary *)param
+-(void)updateUI:(NSString *)pUserID
 {
-    [self.pChatTableView setNeedsDisplay];
+    if( ConnectToServer()==0 )  //-----------------------------------1
+    {
+       SetUserName([pUserID UTF8String]); //----------------------------------2
+       SendUserIDToServer(); //-------------------------------------------3
+       InitSocketSets(); //---------------------------------------------4
+        
+        while(true)
+        {
+            ProcessCommunication();
+            
+            NSString *pMsg = [NSString stringWithUTF8String:GetServerUserMessage().c_str()];
+            
+            NSLog(@"Process Communication!!");
+            
+            if([pMsg isEqualToString:@""]==NO)
+            {
+                [ChatSQLiteDB.sharedInstance insertDB:@"2020.1.1" chat:pMsg cell:0];
+                
+               // [ChatSQLiteDB.sharedInstance selectDB];
+                [ChatSQLiteDB.sharedInstance.pDataArray addObject:[ChatCellData initWithName:nil time:@"2020.1.1" chat:pMsg cell:0]];
+
+                [self.pChatTableView reloadData];
+                 
+              // if([ChatSQLiteDB.sharedInstance.pDataArray count]>0)
+              // {
+                    NSIndexPath *index = [NSIndexPath indexPathForRow:[self.pChatTableView numberOfRowsInSection:0]-1 inSection:0];
+                    
+                    [self.pChatTableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+             //  }
+                [self.pChatTableView setNeedsDisplay];
+            }
+            
+            [NSThread sleepForTimeInterval:1];
+        }
+    }
+    
+   // [self.pChatTableView setNeedsDisplay];
 }
 
 -(void)alertFail
 {
     
 }
-*/
+
 
 -(void)keyboardWillShow:(NSNotification *)pNotification
 {
@@ -192,46 +214,30 @@
 
 -(void)loginToServer:(NSString *)pUserID
 {
-    /*
-    if( ConnectToServer()==0 )  //-----------------------------------1
-    {
-       SetUserName([pUserID UTF8String]); //----------------------------------2
-       SendUserIDToServer(); //-------------------------------------------3
-       InitSocketSets(); //---------------------------------------------4
-        
-        while(true)
-        {
-            ProcessCommunication();
-            
-            NSString *pMsg = [NSString stringWithUTF8String:GetServerUserMessage().c_str()];
-            
-            NSLog(@"Process Communication!!");
-            
-            if([pMsg isEqualToString:@""]==NO)
-            {
-                [ChatSQLiteDB.sharedInstance insertDB:@"2020.1.1" chat:pMsg cell:0];
-                
-               // [ChatSQLiteDB.sharedInstance selectDB];
-                [ChatSQLiteDB.sharedInstance.pDataArray addObject:[ChatCellData initWithName:nil time:@"2020.1.1" chat:pMsg cell:0]];
-
-                [self.pChatTableView reloadData];
-                 
-              // if([ChatSQLiteDB.sharedInstance.pDataArray count]>0)
-              // {
-                    NSIndexPath *index = [NSIndexPath indexPathForRow:[self.pChatTableView numberOfRowsInSection:0]-1 inSection:0];
-                    
-                    [self.pChatTableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-             //  }
-                [self.pChatTableView setNeedsDisplay];
-            }
-            
-            [NSThread sleepForTimeInterval:1];
-        }
-    }
-    */
+      /*
+      // !! 주기적으로 화면 갱신을 하기 위해서
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+          
+          BOOL res = [self heavyOperation];
+          
+          dispatch_async(dispatch_get_main_queue(), ^{
+              
+              if(res)
+              {
+                  [self updateUI:pUserID];
+              }
+              else
+              {
+                  [self alertFail];
+              }
+          });
+      });
+      // !!
+      */
     
-    /*
-    // Background 작업을 하기 위한 코드 !!  // Background modes 를 설정해 주어야 한다..
+    
+    ///*
+     // Background 작업을 하기 위한 코드 !!  // Background modes 를 설정해 주어야 한다..
      UIApplication *application = [UIApplication sharedApplication];
 
      if([[UIDevice currentDevice] respondsToSelector:@selector(isMultitaskingSupported)])
@@ -283,7 +289,7 @@
                          
                          [self.pChatTableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
                   //  }
-                  // [self.pChatTableView setNeedsDisplay];
+                     [self.pChatTableView setNeedsDisplay];
                  }
                  
                  [NSThread sleepForTimeInterval:1];
@@ -303,7 +309,7 @@
          // !!
          CloseSocket();
      }
-     */
+     //*/
     
     NSLog(@"You are Loginned %@", pUserID);
 }
