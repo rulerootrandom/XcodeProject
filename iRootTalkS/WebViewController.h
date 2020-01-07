@@ -10,9 +10,22 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 //#import <UIKit/UIKit.h>
 
-#import "ChatNetworkManager.h"
+//#import "TalkSViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+//!!
+
+@class WebViewController;
+
+@protocol webviewDelegate <NSObject>
+
+-(void)didSelectWith:(WebViewController *)controller userid:(NSString *)pUserId;
+
+@end
+
+//!!
+
 
 @protocol JavaScriptExportDelegate <JSExport>
 
@@ -28,6 +41,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) JSContext *jsContext;
 
+//!!
+@property (nonatomic, weak) id<webviewDelegate> delegate;
+
+//@property BOOL bEnter;
+
+
+-(void)buttonClick;
+
+- (IBAction)SubmitBtn:(UIButton *)sender;
+
+//!!
 
 @end
 

@@ -13,7 +13,6 @@
 #import "UserListViewController.h"
 
 #import "ChatSQLiteDB.h"
-#import "CppNetworkModule.hpp"
 
 @interface TabBarController ()
 
@@ -46,25 +45,36 @@ int QueryUserListFromServer(void);
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
      UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
       
-      self.pWebViewController = [storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
-      NSLog(@"pWeb: %@", self.pWebViewController);
-      
       self.pTalkSViewController = [storyboard instantiateViewControllerWithIdentifier:@"TalkSViewController"];
+    
       NSLog(@"pTalk: %@", self.pTalkSViewController);
-      
+    
+      self.pWebViewController = [storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
+    
+      NSLog(@"pWeb: %@", self.pWebViewController);
+      //!!
+    //  self.pTalkSViewController.pTabBarView = self.view;
+      //!!
+    //  self.pTalkSViewController.pWebViewController = self.pWebViewController;
+    
       self.pUserListViewController = [storyboard instantiateViewControllerWithIdentifier:@"UserListViewController"];
       NSLog(@"pUser: %@", self.pUserListViewController);
     
-      self.pWebViewController.title = @"Log In";
+   //   self.pWebViewController.title = @"Log In";
       self.pTalkSViewController.title = @"TalkS";
       self.pUserListViewController.title = @"User List";
       
-      self.viewControllers = @[self.pWebViewController, self.pTalkSViewController, self.pUserListViewController];
     
+      self.viewControllers = @[self.pTalkSViewController, self.pUserListViewController];
+         
+     // self.viewControllers = @[self.pWebViewController, self.pTalkSViewController, self.pUserListViewController];
     
+      self.delegate = self;
+    
+      //self.pWebViewController.pUserID
+    /*
      // Background 에서 계속 작업을 처리한다..
      if( ConnectToServer()==0 )
      {
@@ -101,24 +111,14 @@ int QueryUserListFromServer(void);
                  
                  NSString *pMsg = [NSString stringWithUTF8String:GetServerUserMessage().c_str()];
                  
+                 NSLog(@"Process Communication!!");
+                 
                  if([pMsg isEqualToString:@""]==NO)
                  {
-                    // NSLog(@"ChatMsg: %@", pMsg);
-                     
-                  // [ChatSQLiteDB.sharedInstance insertDB:@"2020.11.12" chat:@"Hello, Good Night SQLite!!" cell:0];
-                     
+                   
                      [ChatSQLiteDB.sharedInstance insertDB:@"2020.1.1" chat:pMsg cell:0];
                      
-                     
-                     // Select 가 아닌 Object Add 로 바꾸자..
-                   //  [ChatSQLiteDB.sharedInstance selectDB];
-                     
-                     // !! 오늘은 요기까지.. select 를 
-                  //   [self.pTalkSViewController.pChatListView setContentOffset:CGPointMake(0.0, self.pTalkSViewController.pChatListView.contentSize.height-self.pTalkSViewController.pChatListView.rowHeight)];
-                     
-                  //   [self.pTalkSViewController.pChatList]
-                     // reloadData 가 아닌 Object Add 로 바꾸자..
-                  //   [self.pTalkSViewController.pChatListView reloadData];
+                     [self.pTalkSViewController updateTalkTable];
                  }
                  
                  [NSThread sleepForTimeInterval:1];
@@ -136,6 +136,7 @@ int QueryUserListFromServer(void);
          // !!
          CloseSocket();
      }
+      */
 }
 
 /*

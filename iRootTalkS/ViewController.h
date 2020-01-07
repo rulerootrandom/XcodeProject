@@ -13,7 +13,7 @@
 @interface ViewController : UIViewController
 //@interface ViewController : UITabBarController<UITabBarControllerDelegate>
 
-@property (strong, nonatomic) NSString *pUserID;
+
 
 
 @end
