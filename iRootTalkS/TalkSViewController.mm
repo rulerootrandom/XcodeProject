@@ -22,6 +22,7 @@
 @synthesize pSendButton;
 @synthesize pMainView;
 @synthesize pInputBackView;
+@synthesize pLoginButton;
 ///
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -33,9 +34,7 @@
         NSLog(@"prepareForSegue!!: userid: %@", vc.pUserID);
     }
 }
-//*/
 
-//!!
 -(void)didSelectWith:(WebViewController *)controller userid:(NSString *)pUserId
 {
     [controller dismissViewControllerAnimated:YES completion:nil];
@@ -55,23 +54,17 @@
     {
         SetUserMessage( [pMsg UTF8String] );
         
-        [ChatSQLiteDB.sharedInstance insertDB:@"2020.1.1" chat:pMsg cell:1];
+        NSString *pTime = [self getCurrentTime];
+        
+        [ChatSQLiteDB.sharedInstance insertDB:pTime chat:pMsg cell:1];
                             
-        [ChatSQLiteDB.sharedInstance.pDataArray addObject:[ChatCellData initWithName:nil time:@"2020.1.1" chat:pMsg cell:1]];
+        [ChatSQLiteDB.sharedInstance.pDataArray addObject:[ChatCellData initWithName:nil time:pTime chat:pMsg cell:1]];
         
-        [self.pChatTableView reloadData];
-        
-        NSIndexPath *index = [NSIndexPath indexPathForRow:[self.pChatTableView numberOfRowsInSection:0]-1 inSection:0];
-        
-        [self.pChatTableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-                
-        [self.pChatTableView setNeedsDisplay];  //잘 동작한다..
+        [self refreshChatTableView];
 
         pTextView.text = @"";
     }
-    //!!
 }
-//!!
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -83,21 +76,12 @@
  
     [ChatSQLiteDB.sharedInstance selectDB];
     
-    [self.pChatTableView reloadData];
-    
-    if([ChatSQLiteDB.sharedInstance.pDataArray count]>0)
-    {
-        NSIndexPath *index = [NSIndexPath indexPathForRow:[self.pChatTableView numberOfRowsInSection:0]-1 inSection:0];
-                       
-        [self.pChatTableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-    }
+    [self refreshChatTableView];
             
     [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
-    // !!
-   // /*
     CGRect pMainFrame = pMainView.frame;
     
     CGRect pFrame = pInputBackView.frame;
@@ -105,10 +89,6 @@
     pFrame.origin.y = pMainFrame.size.height - 2 * pFrame.size.height;
 
     pInputBackView.frame = pFrame;
-    // */
-    // !!
-
-  
 }
 
 
@@ -124,43 +104,7 @@
 
 -(void)updateUI:(NSString *)pUserID
 {
-    if( ConnectToServer()==0 )  //-----------------------------------1
-    {
-       SetUserName([pUserID UTF8String]); //----------------------------------2
-       SendUserIDToServer(); //-------------------------------------------3
-       InitSocketSets(); //---------------------------------------------4
-        
-        while(true)
-        {
-            ProcessCommunication();
-            
-            NSString *pMsg = [NSString stringWithUTF8String:GetServerUserMessage().c_str()];
-            
-            NSLog(@"Process Communication!!");
-            
-            if([pMsg isEqualToString:@""]==NO)
-            {
-                [ChatSQLiteDB.sharedInstance insertDB:@"2020.1.1" chat:pMsg cell:0];
-                
-               // [ChatSQLiteDB.sharedInstance selectDB];
-                [ChatSQLiteDB.sharedInstance.pDataArray addObject:[ChatCellData initWithName:nil time:@"2020.1.1" chat:pMsg cell:0]];
-
-                [self.pChatTableView reloadData];
-                 
-              // if([ChatSQLiteDB.sharedInstance.pDataArray count]>0)
-              // {
-                    NSIndexPath *index = [NSIndexPath indexPathForRow:[self.pChatTableView numberOfRowsInSection:0]-1 inSection:0];
-                    
-                    [self.pChatTableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-             //  }
-                [self.pChatTableView setNeedsDisplay];
-            }
-            
-            [NSThread sleepForTimeInterval:1];
-        }
-    }
-    
-   // [self.pChatTableView setNeedsDisplay];
+ 
 }
 
 -(void)alertFail
@@ -214,28 +158,6 @@
 
 -(void)loginToServer:(NSString *)pUserID
 {
-      /*
-      // !! 주기적으로 화면 갱신을 하기 위해서
-      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-          
-          BOOL res = [self heavyOperation];
-          
-          dispatch_async(dispatch_get_main_queue(), ^{
-              
-              if(res)
-              {
-                  [self updateUI:pUserID];
-              }
-              else
-              {
-                  [self alertFail];
-              }
-          });
-      });
-      // !!
-      */
-    
-    
     ///*
      // Background 작업을 하기 위한 코드 !!  // Background modes 를 설정해 주어야 한다..
      UIApplication *application = [UIApplication sharedApplication];
@@ -251,8 +173,8 @@
              background_task = UIBackgroundTaskInvalid;
          }];
          
-         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-             
+          dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+              
              // Background Task starts..
              NSLog(@"Running in the background\n");
              
@@ -263,7 +185,10 @@
                 SendUserIDToServer(); //-------------------------------------------3
                 InitSocketSets(); //---------------------------------------------4
                  
-             //   SetUserMessage( "Hello!!! Communication !!" );
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [self.pLoginButton setTitle:@"Connected" forState:UIControlStateNormal];
+                });
              }
              
              while(true)
@@ -276,20 +201,16 @@
                  
                  if([pMsg isEqualToString:@""]==NO)
                  {
-                     [ChatSQLiteDB.sharedInstance insertDB:@"2020.1.1" chat:pMsg cell:0];
+                     NSString *pTime = [self getCurrentTime];
                      
-                    // [ChatSQLiteDB.sharedInstance selectDB];
-                     [ChatSQLiteDB.sharedInstance.pDataArray addObject:[ChatCellData initWithName:nil time:@"2020.1.1" chat:pMsg cell:0]];
+                     [ChatSQLiteDB.sharedInstance insertDB:pTime chat:pMsg cell:0];
+                     
+                     [ChatSQLiteDB.sharedInstance.pDataArray addObject:[ChatCellData initWithName:nil time:pTime chat:pMsg cell:0]];
 
-                     [self.pChatTableView reloadData];
-                      
-                   // if([ChatSQLiteDB.sharedInstance.pDataArray count]>0)
-                   // {
-                         NSIndexPath *index = [NSIndexPath indexPathForRow:[self.pChatTableView numberOfRowsInSection:0]-1 inSection:0];
-                         
-                         [self.pChatTableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-                  //  }
-                     [self.pChatTableView setNeedsDisplay];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                                        
+                            [self refreshChatTableView];
+                      });
                  }
                  
                  [NSThread sleepForTimeInterval:1];
@@ -306,12 +227,46 @@
      {
          NSLog(@"Multitasking Not Supported");
          
-         // !!
          CloseSocket();
      }
-     //*/
+}
+
+-(void)refreshChatTableView
+{
+    [self.pChatTableView reloadData];
+                      
+    if([ChatSQLiteDB.sharedInstance.pDataArray count]>0)
+    {
+         NSIndexPath *index = [NSIndexPath indexPathForRow:[self.pChatTableView numberOfRowsInSection:0]-1 inSection:0];
+         
+         [self.pChatTableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
+
+    [self.pChatTableView setNeedsDisplay];
+}
+
+-(NSString *)getCurrentTime
+{
+    NSCalendar *pCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
-    NSLog(@"You are Loginned %@", pUserID);
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    
+    NSDate *date = [NSDate date];
+    NSDateComponents *comps = [pCalendar components:unitFlags fromDate:date];
+    
+  //  int pyear = (int)[comps year];
+ //   int pmonth = (int)[comps month];
+ //   int pday = (int)[comps day];
+    
+    int phour = (int)[comps hour];
+    int pminute = (int)[comps minute];
+    int psecond = (int)[comps second];
+    
+ //   return [NSString stringWithFormat:@"%04d-%02d-%02d %02d:%02d:%02d", pyear, pmonth, pday, phour, pminute, psecond];
+    
+    return [NSString stringWithFormat:@"%02d:%02d:%02d", phour, pminute, psecond];
+    
+    
 }
 
 /*

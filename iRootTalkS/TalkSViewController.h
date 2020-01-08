@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextView *pTextView;
 @property (strong, nonatomic) IBOutlet UIButton *pSendButton;
 @property (strong, nonatomic) IBOutlet UIView *pMainView;
+@property (strong, nonatomic) IBOutlet UIButton *pLoginButton;
 
 -(CGSize)getBoxSize:(NSString *)pString;
 
@@ -35,6 +36,10 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)updateUI:(NSString *)pUserID;
 -(void)alertFail;
 // */
+
+-(void)refreshChatTableView;
+-(NSString *)getCurrentTime;
+
 
 @end
 
