@@ -62,29 +62,7 @@
     NSLog(@"AfterFinished: %@", self.pUserID);
     
     
-    // !!
-    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    
-    NSString *documentRootPath = [documentPaths objectAtIndex:0];
-    
-    NSString *stringFilePath = [documentRootPath stringByAppendingFormat:@"/myloginid.plist"];
-    
-    NSDictionary *stringDic = [[NSDictionary alloc] initWithContentsOfFile:stringFilePath];
-    
-    if(stringDic)
-    {
-        NSString *loadedString = [stringDic objectForKey:@"loginid"];
-        
-        NSLog(@"Loaded String: %@", loadedString);
-        
-        [self.delegate didSelectWith:self userid:loadedString];
-    }
-    else
-    {
-        NSLog(@"Loading Failure");
-    }
-    // !!
-    
+  
     
     /*
     static int loadcount;
@@ -118,39 +96,19 @@
     //여기서만 동작하고 이후로는 nil 값이 셋팅된다.. 왜 ??
     [self.delegate didSelectWith:self userid:self.pUserID];
     */
-    NSDictionary *stringDic = [[NSDictionary alloc] initWithObjectsAndKeys: pID, @"loginid", nil];
     
-    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-    
-    NSString *documentRootPath = [documentPaths objectAtIndex:0];
-    
-    NSString *stringFilePath = [documentRootPath stringByAppendingFormat:@"/myloginid.plist"];
-    
-    BOOL isWritten = NO;
-    
-    isWritten = [stringDic writeToFile:stringFilePath atomically:YES];
-    
-   // UIAlertView *alert = nil;
-    if(isWritten)
-    {
-        /*
-        alert = [[UIAlertView alloc] initWithTitle:@"알림" message:@"정상적으로 저장되었습니다" delegate:nil cancelButtonTitle:@"확인" otherButtonTitles:nil];
-         */
-        NSLog(@"파일 저장에 성공했습니다.");
-    }
-    else
-    {
-       // alert = [[UIAlertView alloc] initWithTitle:@"알림" message:@"파일 저장에 실패하였습니다" delegate:nil cancelButtonTitle:@"확인" otherButtonTitles:nil];
-        NSLog(@"파일 저장에 실패했습니다.");
-    }
-    
-   // bEnter = YES;
-
+    [self SaveID:pID];
+    [self loadID];
 }
 
 -(void)buttonClick
 {
     NSLog(@"buttonClick");
+}
+
+- (IBAction)backButton:(id)sender {
+    
+    [self loadID];
 }
 
 - (IBAction)SubmitBtn:(UIButton *)sender {
@@ -180,14 +138,62 @@
     }
 }
 
+-(void)SaveID:(NSString *)pID;
+{
+     NSDictionary *stringDic = [[NSDictionary alloc] initWithObjectsAndKeys: pID, @"loginid", nil];
+     
+     NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+     
+     NSString *documentRootPath = [documentPaths objectAtIndex:0];
+     
+     NSString *stringFilePath = [documentRootPath stringByAppendingFormat:@"/myloginid.plist"];
+     
+     BOOL isWritten = NO;
+     
+     isWritten = [stringDic writeToFile:stringFilePath atomically:YES];
+     
+     if(isWritten)
+     {
+         NSLog(@"파일 저장에 성공했습니다.");
+     }
+     else
+     {
+         NSLog(@"파일 저장에 실패했습니다.");
+     }
+}
+
+-(void)loadID
+{
+    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+
+    NSString *documentRootPath = [documentPaths objectAtIndex:0];
+
+    NSString *stringFilePath = [documentRootPath stringByAppendingFormat:@"/myloginid.plist"];
+
+    NSDictionary *stringDic = [[NSDictionary alloc] initWithContentsOfFile:stringFilePath];
+
+    if(stringDic)
+    {
+      NSString *loadedString = [stringDic objectForKey:@"loginid"];
+      
+      NSLog(@"Loaded String: %@", loadedString);
+      
+      [self.delegate didSelectWith:self userid:loadedString];
+    }
+    else
+    {
+      NSLog(@"Loading Failure");
+        
+        [self.delegate didSelectWith:self userid:@""];
+    }
+}
 
 
-/*
 -(BOOL)prefersStatusBarHidden
 {
     return YES;
 }
-*/
+
 
 /*
 #pragma mark - Navigation

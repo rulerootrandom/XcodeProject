@@ -78,4 +78,10 @@ void CloseSocket(void); //---------------------------------------------6
 int QueryUserListFromServer(void);
 //*/
 
+void ReConnect(void);
+
+// !!
+int getUserListCount(void);
+// !!
+
 #endif /* CppNetworkModule_hpp */

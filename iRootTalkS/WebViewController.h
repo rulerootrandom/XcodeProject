@@ -51,6 +51,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (IBAction)SubmitBtn:(UIButton *)sender;
 
+-(void)SaveID:(NSString *)pID;
+
+-(void)loadID;
+
+
 //!!
 
 @end

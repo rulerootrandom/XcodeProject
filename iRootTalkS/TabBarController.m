@@ -46,56 +46,20 @@
       NSLog(@"pUser: %@", self.pUserListViewController);
     
    //   self.pWebViewController.title = @"Log In";
-      self.pTalkSViewController.title = @"TalkS";
-      self.pUserListViewController.title = @"User List";
-      
+    //T  self.pTalkSViewController.title = @"TalkS";
+      self.pTalkSViewController.tabBarItem.image = [UIImage imageNamed:@"talk.png"];
+    
+      //self.pUserListViewController.title = @"User List";
+    self.pUserListViewController.tabBarItem.image = [UIImage imageNamed:@"userlist.png"];
     
       self.viewControllers = @[self.pTalkSViewController, self.pUserListViewController];
          
      // self.viewControllers = @[self.pWebViewController, self.pTalkSViewController, self.pUserListViewController];
     
-      self.delegate = self;
+    //  self.delegate = self;
     
  
-    /*
-      // UI 를 업데이트 하기 위한 Background 작업을 하기 위한 코드 !!  // Background modes 를 설정해 주어야 한다..
-     UIApplication *application = [UIApplication sharedApplication];
-
-     if([[UIDevice currentDevice] respondsToSelector:@selector(isMultitaskingSupported)])
-     {
-         NSLog(@"MultiTasking Supported");
-         __block UIBackgroundTaskIdentifier background_task;
-         
-         background_task = [application beginBackgroundTaskWithExpirationHandler:^ {
-             
-             [application endBackgroundTask: background_task];
-             background_task = UIBackgroundTaskInvalid;
-         }];
-         
-         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-             
-             // Background Task starts..
-             NSLog(@"Running in the background\n");
-             
-             while(true)
-             {
-                 NSLog(@"I am refreshing!!");
-                 [self.pTalkSViewController refreshChatTableView];
-                 [NSThread sleepForTimeInterval:1];
-             }
-             
-             [application endBackgroundTask:background_task];
-             
-             background_task = UIBackgroundTaskInvalid;
-         });
-     }
-     else
-     {
-         NSLog(@"Multitasking Not Supported");
-     }
-     */
 }
-
 /*
 #pragma mark - Navigation
 

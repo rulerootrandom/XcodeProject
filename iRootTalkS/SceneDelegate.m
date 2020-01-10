@@ -11,6 +11,8 @@
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+    
+    NSLog(@"willConnectToSession");
 }
 
 
@@ -19,6 +21,8 @@
     // This occurs shortly after the scene enters the background, or when its session is discarded.
     // Release any resources associated with this scene that can be re-created the next time the scene connects.
     // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
+    
+    NSLog(@"sceneDidDisconnect");
 }
 
 
@@ -37,6 +41,7 @@
 - (void)sceneWillEnterForeground:(UIScene *)scene {
     // Called as the scene transitions from the background to the foreground.
     // Use this method to undo the changes made on entering the background.
+    NSLog(@"sceneWillEnterForeground");
 }
 
 
@@ -44,6 +49,8 @@
     // Called as the scene transitions from the foreground to the background.
     // Use this method to save data, release shared resources, and store enough scene-specific state information
     // to restore the scene back to its current state.
+    
+    NSLog(@"sceneDidEnterBackground");
 }
 
 

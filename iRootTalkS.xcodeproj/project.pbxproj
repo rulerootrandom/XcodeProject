@@ -17,13 +17,15 @@
 		9F5C31B3239E0F2F0067F5EC /* iRootTalkSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31B2239E0F2F0067F5EC /* iRootTalkSTests.m */; };
 		9F5C31BE239E0F2F0067F5EC /* iRootTalkSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31BD239E0F2F0067F5EC /* iRootTalkSUITests.m */; };
 		9F5C31CD239E152B0067F5EC /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31CC239E152B0067F5EC /* WebViewController.m */; };
-		9F5C31D3239E15C20067F5EC /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31D2239E15C20067F5EC /* UserListViewController.m */; };
+		9F5C31D3239E15C20067F5EC /* UserListViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31D2239E15C20067F5EC /* UserListViewController.mm */; };
 		9F5C31D6239E294C0067F5EC /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31D5239E294C0067F5EC /* TabBarController.m */; };
 		9F724B75239F6AF400845828 /* ChatCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F724B74239F6AF400845828 /* ChatCellData.m */; };
 		9F724B78239F6D4B00845828 /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F724B77239F6D4B00845828 /* LeftTableViewCell.m */; };
-		9F724B82239F731D00845828 /* ChatFaceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F724B7B239F731D00845828 /* ChatFaceIcon.png */; };
 		9F724B89239F86AC00845828 /* RightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F724B88239F86AC00845828 /* RightTableViewCell.m */; };
 		9F7E5F9123B49011006A044B /* CppNetworkModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E5F8F23B49011006A044B /* CppNetworkModule.cpp */; };
+		9F83F0DE23C71A4B00B1A0CF /* UserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F83F0DD23C71A4B00B1A0CF /* UserTableViewCell.m */; };
+		9F8CDF3B23C8600E00BEBF9A /* userlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F8CDF3923C8600D00BEBF9A /* userlist.png */; };
+		9F8CDF3C23C8600E00BEBF9A /* talk.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F8CDF3A23C8600E00BEBF9A /* talk.png */; };
 		9F8FB7DC23C4703800A71778 /* TalkSViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C31CF239E15620067F5EC /* TalkSViewController.mm */; };
 		9FA3C465239FCE9D00F8F854 /* ChatSQLiteDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA3C464239FCE9D00F8F854 /* ChatSQLiteDB.m */; };
 		9FADB2B123AB549100DE9A1E /* rightmal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FADB2AE23AB549000DE9A1E /* rightmal.png */; };
@@ -72,18 +74,21 @@
 		9F5C31CE239E15620067F5EC /* TalkSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TalkSViewController.h; sourceTree = "<group>"; };
 		9F5C31CF239E15620067F5EC /* TalkSViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TalkSViewController.mm; sourceTree = "<group>"; };
 		9F5C31D1239E15C20067F5EC /* UserListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserListViewController.h; sourceTree = "<group>"; };
-		9F5C31D2239E15C20067F5EC /* UserListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserListViewController.m; sourceTree = "<group>"; };
+		9F5C31D2239E15C20067F5EC /* UserListViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = UserListViewController.mm; sourceTree = "<group>"; };
 		9F5C31D4239E294C0067F5EC /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		9F5C31D5239E294C0067F5EC /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		9F724B73239F6AF400845828 /* ChatCellData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatCellData.h; sourceTree = "<group>"; };
 		9F724B74239F6AF400845828 /* ChatCellData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatCellData.m; sourceTree = "<group>"; };
 		9F724B76239F6D4B00845828 /* LeftTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftTableViewCell.h; sourceTree = "<group>"; };
 		9F724B77239F6D4B00845828 /* LeftTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewCell.m; sourceTree = "<group>"; };
-		9F724B7B239F731D00845828 /* ChatFaceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChatFaceIcon.png; sourceTree = "<group>"; };
 		9F724B87239F86AC00845828 /* RightTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RightTableViewCell.h; sourceTree = "<group>"; };
 		9F724B88239F86AC00845828 /* RightTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RightTableViewCell.m; sourceTree = "<group>"; };
 		9F7E5F8F23B49011006A044B /* CppNetworkModule.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CppNetworkModule.cpp; sourceTree = "<group>"; };
 		9F7E5F9023B49011006A044B /* CppNetworkModule.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CppNetworkModule.hpp; sourceTree = "<group>"; };
+		9F83F0DC23C71A4B00B1A0CF /* UserTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserTableViewCell.h; sourceTree = "<group>"; };
+		9F83F0DD23C71A4B00B1A0CF /* UserTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserTableViewCell.m; sourceTree = "<group>"; };
+		9F8CDF3923C8600D00BEBF9A /* userlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userlist.png; sourceTree = "<group>"; };
+		9F8CDF3A23C8600E00BEBF9A /* talk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = talk.png; sourceTree = "<group>"; };
 		9FA3C463239FCE9D00F8F854 /* ChatSQLiteDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatSQLiteDB.h; sourceTree = "<group>"; };
 		9FA3C464239FCE9D00F8F854 /* ChatSQLiteDB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatSQLiteDB.m; sourceTree = "<group>"; };
 		9FADB2AE23AB549000DE9A1E /* rightmal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightmal.png; sourceTree = "<group>"; };
@@ -139,10 +144,11 @@
 		9F5C3195239E0F220067F5EC /* iRootTalkS */ = {
 			isa = PBXGroup;
 			children = (
+				9F8CDF3A23C8600E00BEBF9A /* talk.png */,
+				9F8CDF3923C8600D00BEBF9A /* userlist.png */,
 				9FADB2B023AB549100DE9A1E /* leftmal.png */,
 				9FADB2AE23AB549000DE9A1E /* rightmal.png */,
 				9FADB2AF23AB549000DE9A1E /* textbg.png */,
-				9F724B7B239F731D00845828 /* ChatFaceIcon.png */,
 				9F5C3196239E0F220067F5EC /* AppDelegate.h */,
 				9F5C3197239E0F220067F5EC /* AppDelegate.m */,
 				9F5C3199239E0F220067F5EC /* SceneDelegate.h */,
@@ -161,7 +167,7 @@
 				9F5C31A7239E0F2F0067F5EC /* Info.plist */,
 				9F5C31A8239E0F2F0067F5EC /* main.m */,
 				9F5C31D1239E15C20067F5EC /* UserListViewController.h */,
-				9F5C31D2239E15C20067F5EC /* UserListViewController.m */,
+				9F5C31D2239E15C20067F5EC /* UserListViewController.mm */,
 				9F5C31D4239E294C0067F5EC /* TabBarController.h */,
 				9F5C31D5239E294C0067F5EC /* TabBarController.m */,
 				9FA3C463239FCE9D00F8F854 /* ChatSQLiteDB.h */,
@@ -172,6 +178,8 @@
 				9F5C31CF239E15620067F5EC /* TalkSViewController.mm */,
 				9F5C31CB239E152B0067F5EC /* WebViewController.h */,
 				9F5C31CC239E152B0067F5EC /* WebViewController.m */,
+				9F83F0DC23C71A4B00B1A0CF /* UserTableViewCell.h */,
+				9F83F0DD23C71A4B00B1A0CF /* UserTableViewCell.m */,
 			);
 			path = iRootTalkS;
 			sourceTree = "<group>";
@@ -297,13 +305,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F8CDF3B23C8600E00BEBF9A /* userlist.png in Resources */,
 				9F5C31A6239E0F2F0067F5EC /* LaunchScreen.storyboard in Resources */,
 				9FADB2B323AB549100DE9A1E /* leftmal.png in Resources */,
-				9F724B82239F731D00845828 /* ChatFaceIcon.png in Resources */,
 				9F5C31A3239E0F2F0067F5EC /* Assets.xcassets in Resources */,
 				9FADB2B223AB549100DE9A1E /* textbg.png in Resources */,
 				9FADB2B123AB549100DE9A1E /* rightmal.png in Resources */,
 				9F5C31A1239E0F220067F5EC /* Main.storyboard in Resources */,
+				9F8CDF3C23C8600E00BEBF9A /* talk.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F83F0DE23C71A4B00B1A0CF /* UserTableViewCell.m in Sources */,
 				9F8FB7DC23C4703800A71778 /* TalkSViewController.mm in Sources */,
 				9F5C319E239E0F220067F5EC /* ViewController.m in Sources */,
 				9F5C31CD239E152B0067F5EC /* WebViewController.m in Sources */,
@@ -340,7 +350,7 @@
 				9F724B89239F86AC00845828 /* RightTableViewCell.m in Sources */,
 				9F7E5F9123B49011006A044B /* CppNetworkModule.cpp in Sources */,
 				9F724B75239F6AF400845828 /* ChatCellData.m in Sources */,
-				9F5C31D3239E15C20067F5EC /* UserListViewController.m in Sources */,
+				9F5C31D3239E15C20067F5EC /* UserListViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -68,6 +68,15 @@ std::string GetUserList(void)
     }
 }
 
+//!!
+int getUserListCount(void)
+{
+    long size = UserListQueue.size();
+    
+    return (int)size;
+}
+//!!
+
 void SetServerUserMessage(std::string sMsg)// const char *message)  //서버에서 받은 메시지를 큐에 저장한다..
 {
     ServerMessageQueue.push( sMsg );
@@ -261,3 +270,17 @@ int QueryUserListFromServer(void)
     return 0;
 }
 
+// !!
+void ReConnect(void)
+{
+    CloseSocket();
+    
+    if( ConnectToServer()==0 )
+    {
+        //-----------------------------------1
+    //    SetUserName([pUserID UTF8String]); //----------------------------------2
+        SendUserIDToServer(); //-------------------------------------------3
+        InitSocketSets(); //---------------------------------------------4
+    }
+}
+// !!

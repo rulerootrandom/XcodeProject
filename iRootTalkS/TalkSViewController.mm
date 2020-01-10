@@ -41,7 +41,10 @@
     
     NSLog(@"WebView Login ID: %@", pUserId);
     
-    [self loginToServer:pUserId];
+    if([pUserId isEqualToString:@""]==NO)
+    {
+        [self loginToServer:pUserId];
+    }
 }
 
 - (IBAction)SendButton:(id)sender {
@@ -89,6 +92,32 @@
     pFrame.origin.y = pMainFrame.size.height - 2 * pFrame.size.height;
 
     pInputBackView.frame = pFrame;
+    
+    // 로그인 한 아이디가 저장되어 있으면 버튼을 비활성화 시키고 저장된 아이디로 로그인 한다..
+    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+      
+      NSString *documentRootPath = [documentPaths objectAtIndex:0];
+      
+      NSString *stringFilePath = [documentRootPath stringByAppendingFormat:@"/myloginid.plist"];
+      
+      NSDictionary *stringDic = [[NSDictionary alloc] initWithContentsOfFile:stringFilePath];
+      
+      if(stringDic)
+      {
+          NSString *loadedString = [stringDic objectForKey:@"loginid"];
+          
+          NSLog(@"Loaded String: %@", loadedString);
+          
+          [self loginToServer:loadedString];
+          
+      //    [self.pLoginButton setTitle:@"Connected" forState:UIControlStateNormal];
+       //   self.pLoginButton.enabled = NO;
+       //   self.pLoginButton.backgroundColor = UIColor.yellowColor;
+      }
+      else
+      {
+          NSLog(@"Loading Failure");
+      }
 }
 
 
@@ -158,7 +187,6 @@
 
 -(void)loginToServer:(NSString *)pUserID
 {
-    ///*
      // Background 작업을 하기 위한 코드 !!  // Background modes 를 설정해 주어야 한다..
      UIApplication *application = [UIApplication sharedApplication];
 
@@ -188,39 +216,57 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
                     [self.pLoginButton setTitle:@"Connected" forState:UIControlStateNormal];
+                    self.pLoginButton.enabled = NO;
+                    self.pLoginButton.backgroundColor = UIColor.yellowColor;
+                    
+                    NSLog(@"Connected!!");
                 });
-             }
-             
-             while(true)
-             {
-                 ProcessCommunication();
                  
-                 NSString *pMsg = [NSString stringWithUTF8String:GetServerUserMessage().c_str()];
-                 
-                 NSLog(@"Process Communication!!");
-                 
-                 if([pMsg isEqualToString:@""]==NO)
-                 {
-                     NSString *pTime = [self getCurrentTime];
-                     
-                     [ChatSQLiteDB.sharedInstance insertDB:pTime chat:pMsg cell:0];
-                     
-                     [ChatSQLiteDB.sharedInstance.pDataArray addObject:[ChatCellData initWithName:nil time:pTime chat:pMsg cell:0]];
+                while(true)
+                {
+                    if( ProcessCommunication()!=0 )
+                    {
+                        // !!
+                        ReConnect();
+                        NSLog(@"ReConnect!!");
+                        // !!
+                    }
+                    
+                    NSString *pMsg = [NSString stringWithUTF8String:GetServerUserMessage().c_str()];
+                    
+                    NSLog(@"Process Communication!!");
+                    
+                    if([pMsg isEqualToString:@""]==NO)
+                    {
+                        NSString *pTime = [self getCurrentTime];
+                        
+                        [ChatSQLiteDB.sharedInstance insertDB:pTime chat:pMsg cell:0];
+                        
+                        [ChatSQLiteDB.sharedInstance.pDataArray addObject:[ChatCellData initWithName:nil time:pTime chat:pMsg cell:0]];
 
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                                        
-                            [self refreshChatTableView];
-                      });
-                 }
-                 
-                 [NSThread sleepForTimeInterval:1];
+                           dispatch_async(dispatch_get_main_queue(), ^{
+                                           
+                               [self refreshChatTableView];
+                         });
+                    }
+                    
+                    [NSThread sleepForTimeInterval:1];
+                }
+             }
+             else
+             {
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     
+                     [self.pLoginButton setTitle:@"Log In" forState:UIControlStateNormal];
+                     self.pLoginButton.enabled = YES;
+                     self.pLoginButton.backgroundColor = UIColor.whiteColor;
+                 });
              }
              
              [application endBackgroundTask:background_task];
              
              background_task = UIBackgroundTaskInvalid;
-             
-             CloseSocket();
+ 
          });
      }
      else
@@ -229,6 +275,12 @@
          
          CloseSocket();
      }
+}
+
+
+- (IBAction)LoginButton:(id)sender {
+    
+
 }
 
 -(void)refreshChatTableView

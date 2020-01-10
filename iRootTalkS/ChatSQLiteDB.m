@@ -96,7 +96,7 @@
 
     const char *dbfile = [dataPath UTF8String];
     
-    [pDataArray removeAllObjects]; // !!
+    [self.pDataArray removeAllObjects]; // !!
     
     if(sqlite3_open(dbfile, &db)==SQLITE_OK)
     {
@@ -157,7 +157,7 @@
     NSString *docdir;
     NSArray *path;
     
-    pDataArray = [[NSMutableArray alloc] init ];
+    self.pDataArray = [[NSMutableArray alloc] init ];
     
     path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
