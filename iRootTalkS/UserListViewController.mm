@@ -24,69 +24,42 @@
     // Do any additional setup after loading the view.
     
     self.pUserListArray = [[NSMutableArray alloc] init];
-    
-    // Background 작업을 하기 위한 코드 !!  // Background modes 를 설정해 주어야 한다..
-    UIApplication *application = [UIApplication sharedApplication];
-
-    if([[UIDevice currentDevice] respondsToSelector:@selector(isMultitaskingSupported)])
-    {
-        NSLog(@"MultiTasking Supported");
-        __block UIBackgroundTaskIdentifier background_task;
-        
-        background_task = [application beginBackgroundTaskWithExpirationHandler:^ {
-            
-            [application endBackgroundTask: background_task];
-            background_task = UIBackgroundTaskInvalid;
-        }];
-        
-         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-             
-           while(true)
-           {
-               NSLog(@"Updating User ID List!!");
-                      
-               QueryUserListFromServer();
-               
-               [NSThread sleepForTimeInterval:4];
-               
-               [self.pUserListArray removeAllObjects];
-               
-               for(int i=0; i<getUserListCount(); i++)
-               {
-                 NSString *pUserID = [NSString stringWithUTF8String:GetUserList().c_str()];
-                                 
-                 if([pUserID isEqualToString:@""]==NO)
-                 {
-                     [self.pUserListArray addObject:pUserID];
-                 }
-               }
-               
-               dispatch_async(dispatch_get_main_queue(), ^{
-                                                      
-                    [self.pUserTableView reloadData];
-                                    
-                    [self.pUserTableView setNeedsDisplay];
-               });
-            }
-             
-            [application endBackgroundTask:background_task];
-            
-            background_task = UIBackgroundTaskInvalid;
-
-        });
-    }
-    else
-    {
-        NSLog(@"Multitasking Not Supported");
-    }
+ 
+    [self queryUserIDList];
 }
-
 
 -(BOOL)prefersStatusBarHidden
 {
     return YES;
 }
+    
+-(void)queryUserIDList
+{
+    QueryUserListFromServer();
+    
+    [NSThread sleepForTimeInterval:4];
 
+    [self.pUserListArray removeAllObjects];
+    
+    for(int i=0; i<getUserListCount(); i++)
+    {
+        NSString *pUserID = [NSString stringWithUTF8String:GetUserList().c_str()];
+                     
+        if([pUserID isEqualToString:@""]==NO)
+        {
+         [self.pUserListArray addObject:pUserID];
+        }
+    }
+
+    [self.pUserTableView reloadData];
+                    
+    [self.pUserTableView setNeedsDisplay];
+}
+
+- (IBAction)queryUserList:(id)sender
+{
+    [self queryUserIDList];
+}
 
 /*
 #pragma mark - Navigation
