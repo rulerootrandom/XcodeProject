@@ -80,11 +80,8 @@
     [ChatSQLiteDB.sharedInstance selectDB];
     
     [self refreshChatTableView];
-            
-    [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    
+    ///*
     CGRect pMainFrame = pMainView.frame;
     
     CGRect pFrame = pInputBackView.frame;
@@ -92,6 +89,13 @@
     pFrame.origin.y = pMainFrame.size.height - 2 * pFrame.size.height;
 
     pInputBackView.frame = pFrame;
+   // */
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    
     
     // 로그인 한 아이디가 저장되어 있으면 버튼을 비활성화 시키고 저장된 아이디로 로그인 한다..
     NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
