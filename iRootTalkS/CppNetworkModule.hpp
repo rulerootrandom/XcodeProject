@@ -24,7 +24,7 @@ using namespace std;
 
 #define MAXMSGSIZE 1024
 #define MAXNAMESIZE 30
-#define SERVERIP "121.164.124.160"
+#define SERVERIP "121.164.238.137"
 #define PORT 2693
 
 enum Protocols
