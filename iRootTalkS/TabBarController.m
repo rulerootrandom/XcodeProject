@@ -37,28 +37,18 @@
       self.pWebViewController = [storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
     
       NSLog(@"pWeb: %@", self.pWebViewController);
-      //!!
-    //  self.pTalkSViewController.pTabBarView = self.view;
-      //!!
-    //  self.pTalkSViewController.pWebViewController = self.pWebViewController;
-    
+     
       self.pUserListViewController = [storyboard instantiateViewControllerWithIdentifier:@"UserListViewController"];
       NSLog(@"pUser: %@", self.pUserListViewController);
     
-   //   self.pWebViewController.title = @"Log In";
-    //T  self.pTalkSViewController.title = @"TalkS";
       self.pTalkSViewController.tabBarItem.image = [UIImage imageNamed:@"talk.png"];
     
       //self.pUserListViewController.title = @"User List";
-    self.pUserListViewController.tabBarItem.image = [UIImage imageNamed:@"userlist.png"];
+      self.pUserListViewController.tabBarItem.image = [UIImage imageNamed:@"userlist.png"];
     
       self.viewControllers = @[self.pTalkSViewController, self.pUserListViewController];
-         
-     // self.viewControllers = @[self.pWebViewController, self.pTalkSViewController, self.pUserListViewController];
-    
-    //  self.delegate = self;
-    
- 
+     
+//    self.delegate = self;
 }
 /*
 #pragma mark - Navigation

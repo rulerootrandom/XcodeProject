@@ -8,8 +8,6 @@
 
 #import "ChatSQLiteDB.h"
 
-//#import "CppNetworkModule.hpp"
-
 @implementation ChatSQLiteDB
 
 @synthesize dataPath;
@@ -55,8 +53,6 @@
     {
         NSLog(@"Exe");
     }
-    
-  //  [self selectDB];
 }
 
 -(void)insertDB:(NSString *)chattime chat:(NSString *)chattext cell:(int)cellnumber
@@ -74,10 +70,7 @@
         {
             if(sqlite3_step(stmt)==SQLITE_DONE)
             {
-                /*
-                 _txtName.text = @"";
-                 _txtPhone.text = @"";
-                 */
+                ;
             }
             else
             {
@@ -96,7 +89,7 @@
 
     const char *dbfile = [dataPath UTF8String];
     
-    [self.pDataArray removeAllObjects]; // !!
+    [self.pDataArray removeAllObjects];
     
     if(sqlite3_open(dbfile, &db)==SQLITE_OK)
     {
@@ -113,9 +106,10 @@
                 
                 NSLog(@"ID: %@", id);
                 */
-                int ide = sqlite3_column_int(stmt,0);
                 
-            //    NSLog(@"ID: %d", ide );
+            //  int ide = sqlite3_column_int(stmt,0);
+                
+            //  NSLog(@"ID: %d", ide );
                 
                 NSString *chattime = [NSString stringWithUTF8String:sqlite3_column_text(stmt,1)];
                 
@@ -123,15 +117,12 @@
                 
                 int cellnumber = sqlite3_column_int(stmt,3);
                 
-             //   NSLog(@"Select DB cellnumber %d", cellnumber);
-                
                 [pDataArray addObject:[ChatCellData initWithName:nil time:chattime chat:chattext cell:cellnumber]];
             }
             sqlite3_finalize(stmt);
         }
         sqlite3_close(db);
     }
-     //   if([result count]==0) return nil;
 }
 
 -(void)deleteDB
